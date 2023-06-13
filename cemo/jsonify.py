@@ -342,7 +342,7 @@ def json_readr_year(filename, year):
 
 def fill_complex_set(pset):
     '''Return indexed set dictionary'''
-    out = dict()
+    out = {}
     for i in pset.keys():
         out[str(i)] = list(pset[i])
 
@@ -367,7 +367,7 @@ def fill_complex_mutable_param(par):
 
 def fill_scalar_key_param(par):
     '''Return scalar key parameter dictionary'''
-    out = dict()
+    out = {}
     for i in par.keys():
         out[str(i)] = par[i]
 
@@ -376,7 +376,7 @@ def fill_scalar_key_param(par):
 
 def fill_scalar_key_mutable_param(par):
     '''Return scalar key mutableparameter dictionary'''
-    out = dict()
+    out = {}
     for i in par.keys():
         out[str(i)] = par[i].value
 
