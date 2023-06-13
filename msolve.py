@@ -99,11 +99,9 @@ X = SolveTemplate(
 
 # instruct the solver to launch the multi year simulation
 print(
-    "openCEM msolve.py: Runtime %s (pre solver)"
-    % str(datetime.timedelta(seconds=(time.time() - start_time)))
+    f"openCEM msolve.py: Runtime {str(datetime.timedelta(seconds=time.time() - start_time))} (pre solver)"
 )
 X.solve()
 print(
-    "openCEM msolve.py: Runtime %s (post solver)"
-    % str(datetime.timedelta(seconds=(time.time() - start_time)))
+    "openCEM msolve.py: Runtime {str(datetime.timedelta(seconds=time.time() - start_time))} (post solver)"
 )

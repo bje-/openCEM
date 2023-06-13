@@ -109,14 +109,12 @@ if ARGS.solver == "cbc":
     OPT.options['ratio'] = 0.0001
 
 # instruct the solver to calculate the solution
-print("openCEM solve.py: Runtime %s (pre solver)" %
-      str(datetime.timedelta(seconds=(time.time() - START_TIME)))
+print("openCEM solve.py: Runtime {str(datetime.timedelta(seconds=time.time() - START_TIME))} (pre solver)"
       )
 RESULTS = OPT.solve(INSTANCE, tee=ARGS.verbose, keepfiles=False)
-print("openCEM solve.py: Runtime %s (post solver)" %
-      str(datetime.timedelta(seconds=(time.time() - START_TIME)))
+print("openCEM solve.py: Runtime {str(datetime.timedelta(seconds=time.time() - START_TIME))} (post solver)"
       )
-print("openCEM solve.py: Solver status %s" % RESULTS.solver.status)
+print("openCEM solve.py: Solver status {RESULTS.solver.status}")
 if RESULTS.solver.termination_condition == TerminationCondition.infeasible:
     print("openCEM solve.py: Problem infeasible, no solution found.")
     sys.exit(1)
@@ -129,7 +127,8 @@ if ARGS.yaml:
 
 # Produce pickle output of entire instance object
 if ARGS.pickle:
-    pickle.dump(INSTANCE, open(MODEL_NAME + '.p', 'wb'))
+    with open(MODEL_NAME + '.p', 'wb') as fhandle:
+        pickle.dump(INSTANCE, fhandle)
 
 if ARGS.results:
     cemo.utils.printstats(INSTANCE)
